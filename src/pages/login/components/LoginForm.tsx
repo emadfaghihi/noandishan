@@ -66,7 +66,6 @@ const LoginForm: FC<LoginFormProps> = () => {
     console.log("object", FormValue);
     submitLogin({ data: FormValue }).then(async (res: any) => {
       if (res.data) dispatch(login(res.data.token));
-      console.log({ token });
     });
   }, [FormValue]);
 

@@ -9,16 +9,16 @@ import route from "./routes/routes";
 
 function App() {
   const token = useAppSelector((state: RootState) => state.Auth.token);
-  console.log(route);
-  const routeArray: RouteObject[] = route.map((item) => {
-    if (item.children && !token)
-      item["children"] = item.children.filter((x: any) => x.protected !== true);
+  // console.log(route);
+  // const routeArray: RouteObject[] = route.map((item) => {
+  //   if (item.children && !token)
+  //     item["children"] = item.children.filter((x: any) => x.protected !== true);
 
-    if (!item.protected || (item.protected && token)) {
-      return item;
-    }
-  });
-  const routes = useRoutes(routeArray);
+  //   if (!item.protected || (item.protected && token)) {
+  //     return item;
+  //   }
+  // });
+  const routes = useRoutes(route);
   return routes;
 }
 

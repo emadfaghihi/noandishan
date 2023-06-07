@@ -33,7 +33,8 @@ const route: any[] = [
   },
   {
     path: "*",
-    element: <Navigate replace to="/login" />,
+    Component: Login,
+    
   },
 ];
 
