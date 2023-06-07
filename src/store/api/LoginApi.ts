@@ -2,14 +2,6 @@ import { createApi } from "@reduxjs/toolkit/dist/query/react";
 import { baseQuery } from "../../data/AppCreateApi";
 import { LoginForm } from "../../pages/login/components/LoginForm";
 
-export interface Status {
-  name: string;
-  key: string;
-  endpoint: string;
-  query: string;
-  mui_icon: string;
-  color: string;
-}
 interface LoginRes{
   token:string
 }

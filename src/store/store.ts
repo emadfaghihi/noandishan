@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import reducer from "./reducer";
 import LoginApi from "./api/LoginApi";
+import HomeApi from "./api/HomeApi";
 // import { ApiErrorHandle } from "./middlewares/ApiErrorHandle.ts";
 
 const middlewares = [
     // ApiErrorHandle,
   LoginApi.middleware,
+  HomeApi.middleware,
 ];
 
 export const store = configureStore({
