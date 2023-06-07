@@ -1,7 +1,12 @@
-import { DataRouteObject, Outlet, RouteObject } from "react-router-dom";
+import {
+  DataRouteObject,
+  Navigate,
+  Outlet,
+  RouteObject,
+  redirect,
+} from "react-router-dom";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
-
 
 const route: any[] = [
   {
@@ -15,12 +20,9 @@ const route: any[] = [
     ),
     children: [
       {
-        index: true,
-        Component: Home,
-      },
-      {
         path: "/home",
         Component: Home,
+        protected: true,
       },
     ],
   },
@@ -28,7 +30,10 @@ const route: any[] = [
   {
     path: "/login",
     Component: Login,
-    protected:true 
+  },
+  {
+    path: "*",
+   element:<Navigate replace to="/login" />
   },
 ];
 
