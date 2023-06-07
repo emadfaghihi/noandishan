@@ -7,11 +7,12 @@ import { FC, useCallback, useEffect, useState } from "react";
 import logo from "../../../assets/image/logo.png";
 import googel from "../../../assets/svg/Group.svg";
 import { HandelInputValue } from "../../../helpers/tools";
-import { useLoginMutation } from "../../../store/api/LoginApi";
 import { useAppDispatch, useAppSelector } from "../../../hooks/useRedux";
 import { login } from "../../../store/AuthSlice";
 import { RootState } from "../../../store/store";
 import { useNavigate } from "react-router-dom";
+import { useMutation } from "react-query";
+import LoginApi from "../../../services/api/LoginApi";
 
 interface LoginFormProps {}
 
@@ -49,7 +50,14 @@ const LoginForm: FC<LoginFormProps> = () => {
   const [FormValue, setFormValue] = useState<LoginForm>({} as LoginForm);
 
   // ANCHOR API
-  const [submitLogin] = useLoginMutation();
+  // const [submitLogin] = useLoginMutation();
+  const submitLogin = useMutation(LoginApi, {
+    onSuccess: (data, variables, context) => {
+      // Boom baby!
+      console.log("object", data, data.data.token);
+      if (data.data.token) dispatch(login(data.data.token));
+    },
+  });
 
   // ANCHOR EFECT
   useEffect(() => {
@@ -64,9 +72,11 @@ const LoginForm: FC<LoginFormProps> = () => {
   }, []);
   const onSubmit = useCallback(() => {
     console.log("object", FormValue);
-    submitLogin({ data: FormValue }).then(async (res: any) => {
-      if (res.data) dispatch(login(res.data.token));
-    });
+    console.log(submitLogin.mutate(FormValue));
+
+    // submitLogin({ data: FormValue }).then(async (res: any) => {
+    // if (res.data) dispatch(login(res.data.token));
+    // });
   }, [FormValue]);
 
   return (

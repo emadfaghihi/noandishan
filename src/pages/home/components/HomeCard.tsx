@@ -1,6 +1,6 @@
-import { FC, useCallback, useEffect, useState } from "react";
-import { Movie, useGetMoviesQuery } from "../../../store/api/HomeApi";
+import { FC } from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
+import { Movie } from "../../../services/api/HomeApi";
 
 interface HomeCardProps {
   movie: Movie;

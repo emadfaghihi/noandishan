@@ -5,7 +5,8 @@ import { RootState } from "./store/store";
 import route from "./routes/routes";
 
 function App() {
-  const token = useAppSelector((state: RootState) => state.Auth.token);
+
+  // const token = useAppSelector((state: RootState) => state.Auth.token);
   // console.log(route);
   // const routeArray: RouteObject[] = route.map((item) => {
   //   if (item.children && !token)
