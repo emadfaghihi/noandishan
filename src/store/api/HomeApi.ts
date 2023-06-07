@@ -2,14 +2,14 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: "https://moviesapi.ir/api/",
-  prepareHeaders: (headers) => {
-    if (!headers.get("Authorization") && localStorage.getItem("token"))
-      headers.set("Authorization", `Bearer ${localStorage.getItem("token")}`);
+  // prepareHeaders: (headers) => {
+  //   if (!headers.get("Authorization") && localStorage.getItem("token"))
+  //     headers.set("Authorization", `Bearer ${localStorage.getItem("token")}`);
 
-    headers.set("Accept", "application/json");
+  //   headers.set("Accept", "application/json");
 
-    return headers;
-  },
+  //   return headers;
+  // },
 });
 
 export interface MovieApi {
