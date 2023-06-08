@@ -54,8 +54,8 @@ const LoginForm: FC<LoginFormProps> = () => {
   const submitLogin = useMutation(LoginApi, {
     onSuccess: (data, variables, context) => {
       // Boom baby!
-      console.log("object", data, data.data.token);
-      if (data.data.token) dispatch(login(data.data.token));
+      console.log("object", data, data.token);
+      if (data.token) dispatch(login(data.token));
     },
   });
 

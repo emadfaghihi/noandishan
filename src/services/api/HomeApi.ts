@@ -23,5 +23,8 @@ export interface Metadata {
   total_count: number;
 }
 
-const HomeApi =()=> axios.get<MovieApi>("https://moviesapi.ir/api/v1/movies");
+const HomeApi = async () => {
+  const { data } =await  axios.get<MovieApi>("https://moviesapi.ir/api/v1/movies");
+  return data;
+};
 export default HomeApi;

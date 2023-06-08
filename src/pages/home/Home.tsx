@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <AppContainer>
       <div className="grid grid-cols-1 gap-4  md:grid-cols-4 ">
-        {data?.data?.data.map((card: any) => (
+        {data?.data?.map((card: any) => (
           <HomeCard key={card.id} movie={card} />
         ))}
       </div>

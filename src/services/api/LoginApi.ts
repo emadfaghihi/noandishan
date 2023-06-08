@@ -5,9 +5,11 @@ interface LoginRes {
   token: string;
 }
 
-const LoginApi = (data: LoginForm) =>
-  axios.post<{ data: LoginForm }, { data: LoginRes }>(
+const LoginApi = async (body: LoginForm) => {
+  const { data } = await axios.post<{ body: LoginForm }, { data: LoginRes }>(
     "https://reqres.in/api/login",
-    data
+    body
   );
+  return data;
+};
 export default LoginApi;

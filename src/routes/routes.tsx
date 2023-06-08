@@ -20,6 +20,10 @@ const route: any[] = [
     ),
     children: [
       {
+        index: true,
+        element: <Navigate replace to={"/home"} />,
+      },
+      {
         path: "/home",
         Component: Home,
         protected: true,
@@ -34,7 +38,6 @@ const route: any[] = [
   {
     path: "*",
     Component: Login,
-    
   },
 ];
 
